@@ -1,0 +1,122 @@
+#!/bin/bash
+#echo hold on...we need to install
+#brew install pv
+
+tput clear
+
+acd=10
+soc=5
+fri=0
+
+tput setaf 7
+echo
+echo
+echo 
+echo Some rules we need to make
+echo 
+echo 1. all answers must be lowercase
+echo
+echo 2. all answers should be in the same form as they are in the question
+echo
+echo GOOD LUCK!
+echo
+echo
+echo
+tput setaf 2
+echo "Are you ready to live in high school?"|pv -qL 10 
+
+tput setaf 5
+read yes
+
+if [ "$yes" = "yes" ]
+then
+    tput setaf 2
+    echo "then lets get started!"|pv -qL 10
+    echo "whats your name:"|pv -qL 10
+    echo
+    tput setaf 5
+    read name
+    echo
+    tput setaf 2
+    echo "hello $name, nice to meet you. I am Shannon Graves your headmaster and your guide through these four years"|pv -qL 20
+    echo "[$name] welcome to your first day of freshman year at island school"|pv -qL 15
+    echo
+    tput setaf 6
+    echo 
+    echo "[$name] you can choose between taking honorsBio or basicBio"|pv -qL 10
+    echo
+    read honorsOrBasic
+    echo
+        if [ $honorsOrBasic = "basicBio" ]
+        then 
+        echo
+        elif [ $honorsBio = "honorsBio" ]
+        then
+        echo
+        else
+            tput setaf 6
+            echo "incorrect formatting. Please answer either honorsBio or basicBio."
+            echo
+            echo "[$name] you can choose between taking honorsBio or basicBio"|pv -qL 10
+            echo
+            read honorsOrBasic
+            echo
+        fi
+    if [ $honorsOrBasic = "basicBio" ]
+    then
+        echo "[$name] making these decisions will negatively impact your academic status..."|pv -qL 20
+        echo "your starting stats are $acd for academics, $soc for social status and $fri for friends. They will appear in this order"|pv -qL 15 
+        echo "[$name] [$acd] [$soc] [$fri] These will appear any time they change"|pv -qL 15 
+        ((acd--))
+        ((acd--))
+        echo "[$name] [$acd] can you see the change"
+        echo 
+        echo
+        echo
+    elif [ $honorsOrBasic = "honorsBio" ]
+        then
+        echo wassssssup
+    fi
+
+
+    echo 
+    echo
+    echo
+        echo "you now have to decide where to sit(for all classes)..."|pv -qL 15 
+        echo "Hmmm"|pv -qL 10
+        echo "frontRow means you are intersted and excied for class..."|pv -qL 15
+        echo " but there is a hot girl in the middleRow..."|pv -qL 15
+        echo "and your best friend sits in the lastRow..."|pv -qL 15 
+        echo "hmm your choice..."|pv -qL 10
+        echo
+        tput setaf 3
+        read row
+        tput setaf 6
+        if [ $row = "frontRow" ] 
+        then
+            
+            echo "front row, intersting. Big boost to academic, but a bump down for social"|pv -qL 10
+            ((acd++))
+            ((acd++))
+            ((soc--))
+            ((soc--))
+            echo "[$name] [$acd] [$soc] [$fri] still no real friends :("
+        elif [ $row = "middleRow" ]
+        then
+            echo "wow $name. making a big move on Lapis Dove..."|pv -qL 10
+            ((soc++))
+            ((soc++))
+            ((fri++))
+            echo "[$name] [$acd] [$soc] [$fri] looks like you have made a new friend and your social status jumped up one"|pv -qL 15 
+            echo "she seems interested...lets see how this goes."
+        elif [ $row = "lastRow" ]
+        then 
+            echo "wow. really don't care about school. I see how it is..."
+            echo "[$name] [$acd] [$soc] [$fri]" 
+        fi
+        echo making decisions like this 
+
+else 
+    echo get the fuck out
+fi
+tput setaf 7
