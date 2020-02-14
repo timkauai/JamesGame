@@ -1,0 +1,2 @@
+# JamesGame
+islandSchool sucks
